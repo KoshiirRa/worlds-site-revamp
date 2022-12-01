@@ -1,12 +1,12 @@
 export const AverageFromDie = {
   methods: {
-    averageFromDie (die) {
-      if (die) {
-        const array = die.split('d')
-        return Math.floor(parseInt(array[0], 10) * ((parseInt(array[1], 10) + 1) / 2))
-      } else {
-        return 0
-      }
+    averageFromDie (dieType, dieCount) {
+      const dt = parseInt(dieType, 10) || 0
+      const dc = parseInt(dieCount, 10) || 0
+      return dc * ((dt + 1) / 2)
+    },
+    roundedAverageFromDie (dieType, dieCount) {
+      return Math.floor(this.averageFromDie(dieType, dieCount))
     }
   }
 }

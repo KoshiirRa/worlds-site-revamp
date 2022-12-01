@@ -1,18 +1,26 @@
-<template lang="pug">
-  v-app(toolbar)
-    main-toolbar(navBrand primaryNavigation)
-    nuxt
-    main-footer
+<template>
+  <v-app>
+    <!-- START: APP BAR -->
+    <me-app-bar />
+    <!-- END: APP BAR -->
+    <me-version-snackbar />
+    <!-- START: NAV DRAWER -->
+    <me-navigation />
+    <!-- END: NAV DRAWER -->
+
+    <!-- START: CONTENT -->
+    <v-main>
+      <me-logout />
+      <nuxt />
+    </v-main>
+    <!-- END: CONTENT -->
+  </v-app>
 </template>
 
 <script>
-  import MainToolbar from '~/components/MainToolbar.vue'
-  import MainFooter from '~/components/MainFooter.vue'
+import { MetaHead } from '~/mixins/MetaHead'
 
-  export default {
-    components: {
-      MainFooter,
-      MainToolbar
-    }
-  }
+export default {
+  mixins: [MetaHead]
+}
 </script>
